@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from plaid import views
+from plaiduser import views
 
 urlpatterns = [
 	path('plaid/account/', views.accounts_list),
