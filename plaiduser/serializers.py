@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from plaid.models import MeAccounts, MeUserdetail
+from plaiduser.models import MeAccounts, MeUserdetail
 
 
 class MeAccountsSerializer(serializers.ModelSerializer):
@@ -7,7 +7,11 @@ class MeAccountsSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = MeAccounts
 		fields = ('account_id', 'username', 'email', 'contact_number', 'active', 'updated', 'users')
+		#depth = 1
 
+	# call other class serialiser inorder to save data in those model as well	
+	# def create(self, validated_data):
+	# 	return MeAccounts(**validated_data)
 
 class MeUserdetailSerializer(serializers.ModelSerializer):
 	class Meta:

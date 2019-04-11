@@ -65,7 +65,7 @@ class MePlaidUserBalanceDetail(models.Model):
     plaid_account = models.ForeignKey('MePlaidUserItemAccounts', on_delete=models.CASCADE)
     balance = models.IntegerField()
     temporal_type = models.CharField(max_length=200)
-    fetched_date = models.DateField()
+    fetched_date = models.DateField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -89,7 +89,7 @@ class MePlaidUserItem(models.Model):
     item_name = models.CharField(max_length=100)
     accesstoken = models.CharField(max_length=200)
     user = models.ForeignKey('MeUserdetail', on_delete=models.CASCADE)
-    linked_date = models.DateField(blank=True, null=True)
+    linked_date = models.DateField(auto_now_add=True)
 
     class Meta:
         managed = False
